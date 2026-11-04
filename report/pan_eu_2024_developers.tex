@@ -1,0 +1,57 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[top=1.5cm,bottom=1.4cm,left=1.8cm,right=1.8cm]{geometry}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue!50!black,citecolor=black]{hyperref}
+\setlist{itemsep=0pt,topsep=1pt,leftmargin=1.2em,parsep=0pt}
+\captionsetup{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2.5pt}
+\pagestyle{empty}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcommand{\ngL}{ng\,L$^{-1}$}
+\newcommand{\sect}[1]{\vspace{2pt}{\large\bfseries #1}\par\vspace{-1pt}}
+
+\input{pan_eu_2024_numbers.tex}
+\begin{document}
+{\Large\bfseries Regulated pharmaceuticals in treated municipal wastewater against the EU river limits: 2024 pan-European data}\par
+
+\sect{1\quad Data sources}
+\textbf{Occurrence data.} Meyer et al.\ (2026), \emph{Water Res.} 308:127008 [1] (PARC pan-European campaign); we used its supplementary spreadsheet (SI-A1) exactly as published. The study sampled 30 municipal sewage treatment plants in 15 countries in March--September 2024; we use the \Nplants{} plants in the \Nctry{} EU member states (see Methods). For each plant there is one three-day mixed sample (72\,h composite) of the incoming sewage and one of the treated water (effluent). According to the paper the plants are 26 conventional activated-sludge plants, 3 sequencing batch reactors and 1 trickling-filter plant (all 30, not split by country); it mentions no advanced stage (ozone, activated carbon) at any plant, and which plant uses which process is not in the data. The treated water was analysed for these substances by two laboratories, Eawag and UFZ, whose methods differ in the lowest amount they can measure (shown in Table 1). \textbf{Limits.} EU river limits (annual-average environmental quality standards) for inland surface water, Directive (EU) 2026/805 [2] (annex read by us): diclofenac 40, clarithromycin 130, carbamazepine 2\,500, erythromycin 500, azithromycin 19\,\ngL.
+
+\sect{2\quad Methods}
+\textbf{Plants included.} The two plants each in Great Britain and Switzerland (4 of the study's 30) are excluded, because Directive (EU) 2026/805 applies to EU member states; the remaining \Nplants{} plants are two each in \Nctry{} EU countries (Austria, Belgium, Czech Republic, Denmark, France, Germany, Italy, Netherlands, Poland, Slovakia, Slovenia, Spain, Sweden). \textbf{Ratio} $=$ concentration in the treated water $\div$ EU river limit, per plant and laboratory (ratio $>1$ means above the limit); Table 1 gives its median and range over the plants. No river dilution is applied, so it is an end-of-pipe comparison, not a river concentration. The two laboratories are shown separately and never averaged. A ``below detection'' result (below the lowest amount the laboratory can measure) is never replaced by a single value: it counts as ``below the limit'' only if the laboratory's lowest measurable amount is itself below the limit, otherwise it is ``undetermined''. A literal 0 in the spreadsheet is treated as not detected. \textbf{Removal} per plant $=(\mathrm{incoming}-\mathrm{treated})/\mathrm{incoming}\times 100$, using the same laboratory's results for both samples; plants whose incoming sewage was not measurable are excluded. Because leaving out plants with a below-detection treated water would bias removal low, Table 1 gives two versions: (a) only plants measurable on both sides; (b) also counting the below-detection plants, as a lower bound (treated-water concentration set to the lowest measurable amount) and an upper bound (set to 0). No single substituted value is used; the paper's own half-limit substitution lies between the two bounds. Values were not cross-checked against the paper's figures.
+
+\sect{3\quad Conclusions}
+\begin{itemize}
+  \item \textbf{Diclofenac: above the EU river limit at \dicAbovee{} plants in both laboratories}, median ratio \dicMedRe{} (Eawag) and \dicMedRu{} (UFZ), lowest \dicMinRe{} and \dicMinRu{}, highest \dicMaxRe{} and \dicMaxRu{}. Measured removal is \dicReme\,\% and \dicRemu\,\%. To bring the ratio to 1 without river dilution, the treated-water concentration must fall by at least \dicRedMede\,\% (Eawag) / \dicRedMedu\,\% (UFZ) at the median plant and by at least \dicRedMaxe\,\% / \dicRedMaxu\,\% at the worst plant (simple arithmetic from the ratio; with a river dilution factor $D$ the requirement is ratio$/D\le 1$).
+  \item \textbf{Clarithromycin: borderline.} Median ratio \claMedRe{} (Eawag; \claAbovee{} plants above 1) and \claMedRu{} (UFZ; \claAboveu{}), highest \claMaxRe{} and \claMaxRu{}, which would need a further reduction of at least \claRedMaxe\,\% / \claRedMaxu\,\% at the worst plant. Measured removal \claReme\,\% and \claRemu\,\%.
+  \item \textbf{Carbamazepine and erythromycin are below their limits at every plant} (ratio at most \carMaxR{} and \eryMaxR{}). Carbamazepine is hardly removed (\carReme\,\% Eawag, \carRemu\,\% UFZ), so compliance reflects its high limit (2\,500\,\ngL{}), not good treatment. Erythromycin removal cannot be interpreted (\eryNreme{} and \eryNremu{} plants).
+  \item \textbf{Azithromycin cannot be assessed:} the Eawag laboratory can only measure down to \aziLOQ\,\ngL{} in treated water, which is \aziLOQratio{} times the river limit (19\,\ngL{}); all \Nplants{} results are ``below \aziLOQ{}'', which says nothing about the limit. Counting those plants as bounds gives a median removal anywhere from \aziBndLo\,\% to \aziBndHi\,\% (\aziBndN{} plants), i.e.\ no information. Ibuprofen and the three estrogens (limits 0.36 to 0.017\,\ngL{}, lower than routine methods can measure) were not in the study's target list.
+  \item \textbf{Removal does not depend on how below-detection results are handled} for the four assessable substances: the lower and upper bounds equal the measured median (Table 1, last column), because below-detection treated-water results only occurred where the incoming sewage was also not measurable.
+  \item \textbf{Difference between laboratories:} UFZ's median ratio is \dicLabRatio{} times Eawag's for diclofenac and \claLabRatio{} times for clarithromycin, which gives the size of the measurement uncertainty to allow for in any design target.
+  \item \textbf{Limits of the evidence:} one campaign per plant (three-day mixed samples, spring to autumn), municipal plants only (no hospital streams), treated water compared with an in-river limit, and no information on which plants use which process. Substances without a river limit that exceed published no-effect levels (e.g.\ venlafaxine and its metabolite) are screened separately; whether those no-effect levels are measured or modelled is unverified.
+\end{itemize}
+{\footnotesize\textbf{References.} [1] C.~Meyer \emph{et al.}, \emph{Water Res.} \textbf{308}, 127008 (2026), doi:10.1016/j.watres.2026.127008. [2] Directive (EU) 2026/805, OJ L, 20.4.2026 (in force 10 May 2026; transposition by 21 Dec 2027).\par}
+
+\newpage
+\begin{landscape}
+\thispagestyle{empty}
+\captionsetup{width=0.97\linewidth}
+{\large\bfseries Table 1\quad Treated-water concentration and removal of the five regulated pharmaceuticals, 2024, \Nplants{} sewage treatment plants in \Nctry{} EU countries}\par
+\vspace{4pt}
+\footnotesize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\input{table1_regulated.tex}
+\par\vspace{5pt}
+{\footnotesize
+\textbf{How to read the table.} Each substance has one row per laboratory; the two laboratories are never combined. \emph{Plants measured / below detection}: plants with a result from that laboratory, and how many of those were under the lowest amount the laboratory can measure (or reported as 0). \emph{Lowest amount the lab can measure}: median over plants (Eawag: limit of quantification in treated water; UFZ: method detection limit). \emph{Treated-water concentration and ratio}: statistics over the plants where the substance was measurable; the ratio is the concentration divided by the EU river limit, so 1 means ``at the limit'' and 20.2 means 20.2 times above it, before any river dilution. Values to 3 significant figures; ``mean $\pm$ standard deviation'' uses the sample standard deviation ($n-1$), given when at least 2 values exist (removal: at least 3 plants). The distributions are skewed, so the median is the main statistic and the standard deviation is sensitive to single high plants. A below-detection result counts as ``at or below the limit'' only if the lab's lowest measurable amount is under the limit; for azithromycin it is above (775 vs 19\,\ngL), so the ratio is undetermined. \emph{Removal}: for each plant, (incoming $-$ treated) $/$ incoming $\times\,100$ from the same laboratory's three-day samples; negative means more leaves the plant than enters (for example a bound form that breaks down into the parent compound during treatment). Last column: the same calculation also counting plants whose treated water was below detection, with the treated-water concentration set to the lowest measurable amount (lower bound) or to 0 (upper bound), giving the median of each bound; plants whose incoming sewage was not measurable are left out in both versions. Eawag erythromycin: \eryBelowe{} of \Nplants{} plants below detection. Source: Meyer et al.\ (2026), SI-A1, EU member-state plants only; limits: Directive (EU) 2026/805. Generated by \texttt{scripts/01\_parse\_parc\_2024.py} and \texttt{scripts/02\_table1\_developer\_note.py}.
+}
+\end{landscape}
+\end{document}
